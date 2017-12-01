@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import {CharacterSelectionModule} from './character-selection/character-selection.module';
+import {AppRoutingModule} from './app-routing.module';
+import {characterReducer} from './character-selection/character/character.reducer';
+import {StoreModule} from '@ngrx/store';
 
 
 @NgModule({
@@ -10,7 +14,10 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    CharacterSelectionModule,
+    StoreModule.forRoot({ characterReducer: characterReducer }),
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
